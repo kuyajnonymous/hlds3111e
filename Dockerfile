@@ -24,21 +24,21 @@ RUN tar -xzf /server/hlds_l_3111e_update.tar.gz -C /server
 RUN rm /server/hlds_l_3111e_update.tar.gz
 
 # Download and install Counter-Strike 1.5
-#RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_full_202503/cs_15_full.tar.gz && \
-#    tar -xzf /tmp/cs_15_full.tar.gz -C /server/hlds_l/ && \
-#    rm /tmp/cs_15_full.tar.gz
+RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_full_202503/cs_15_full.tar.gz && \
+    tar -xzf /tmp/cs_15_full.tar.gz -C /server/hlds_l/ && \
+    rm /tmp/cs_15_full.tar.gz
 
 # Install Metamod (Ensure directory exists first)
-#RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
-#    curl -L -o /tmp/all_in_one_3.2a.zip https://archive.org/download/hlds_l_3111_full_202503/all_in_one_3.2a.zip && \
-#    unzip -o /tmp/all_in_one_3.2a.zip -d /server/hlds_l/cstrike/addons/metamod/ && \
-#    rm /tmp/all_in_one_3.2a.zip
+RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
+    curl -L -o /tmp/all_in_one_3.2a.zip https://archive.org/download/hlds_l_3111_full_202503/all_in_one_3.2a.zip && \
+    unzip -o /tmp/all_in_one_3.2a.zip -d /server/hlds_l/cstrike/addons/metamod/ && \
+    rm /tmp/all_in_one_3.2a.zip
 
 # Install Podbot (Ensure correct extraction path)
-#RUN mkdir -p /server/hlds_l/cstrike/addons/podbot/ && \
-#    curl -L -o /tmp/podbot_full_V3B22.zip https://archive.org/download/hlds_l_3111_full_202503/podbot_full_V3B22.zip && \
-#    unzip -o /tmp/podbot_full_V3B22.zip -d /server/hlds_l/cstrike/addons/ && \
-#    rm /tmp/podbot_full_V3B22.zip
+RUN mkdir -p /server/hlds_l/cstrike/addons/podbot/ && \
+    curl -L -o /tmp/podbot_full_V3B22.zip https://archive.org/download/hlds_l_3111_full_202503/podbot_full_V3B22.zip && \
+    unzip -o /tmp/podbot_full_V3B22.zip -d /server/hlds_l/cstrike/addons/ && \
+    rm /tmp/podbot_full_V3B22.zip
 
 # Remove unnecessary mod folders
 RUN rm -rf /server/hlds_l/tfc /server/hlds_l/dmc /server/hlds_l/ricochet
