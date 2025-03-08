@@ -9,7 +9,7 @@ services:
     tty: true
     stdin_open: true
 #    volumes:
-#      - /opt/cstrike:/server/hlds_l/cstrike #replace with your game mode path
+#      - /opt/cstrike/addons:/server/hlds_l/cstrike/addons #replace with your game mode path
     ports:
       - 27016:27016/tcp
       - 27016:27016/udp
