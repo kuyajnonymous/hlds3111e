@@ -24,9 +24,9 @@ RUN tar -xzf /server/hlds_l_3111e_update.tar.gz -C /server
 RUN rm /server/hlds_l_3111e_update.tar.gz
 
 # Download and install Counter-Strike 1.5
-RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_full_202503/cs_15_full.tar.gz && \
-    tar -xzf /tmp/cs_15_full.tar.gz -C /server/hlds_l/ && \
-    rm /tmp/cs_15_full.tar.gz
+#RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_full_202503/cs_15_full.tar.gz && \
+#    tar -xzf /tmp/cs_15_full.tar.gz -C /server/hlds_l/ && \
+#    rm /tmp/cs_15_full.tar.gz
 
 # Install Metamod (Ensure directory exists first)
 #RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
@@ -86,7 +86,7 @@ Secure\n\
 \thlauth3.won2.steamlessproject.nl:27012\n\
 }" | tee /server/hlds_l/valve/woncomm.lst /server/hlds_l/valve/valvecomm.lst > /dev/null
 
-COPY hlds3111_patch/* ./
+#COPY hlds3111_patch/* ./
 RUN chmod +x /server/hlds_l/hlds*
 
 
