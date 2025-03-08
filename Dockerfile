@@ -29,7 +29,7 @@ RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_f
     rm /tmp/cs_15_full.tar.gz
 
 # Install Metamod (Ensure directory exists first)
-RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
+#RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
 #    curl -L -o /tmp/all_in_one_3.2a.zip https://archive.org/download/hlds_l_3111_full_202503/all_in_one_3.2a.zip && \
 #    unzip -o /tmp/all_in_one_3.2a.zip -d /server/hlds_l/cstrike/addons/metamod/ && \
 #    rm /tmp/all_in_one_3.2a.zip
