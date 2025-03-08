@@ -1,13 +1,10 @@
-FROM i386/debian:8-slim
+FROM i386/debian
 
-# Force Debian 8 installation (if needed)
-RUN echo "deb http://archive.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list && \
-     echo "deb http://archive.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list && \
-     apt-get update -o Acquire::Check-Valid-Until=false -y
-
-# Install dependencies with the correct versions
-RUN apt-get install --force-yes  --no-install-recommends \
-    wget curl unzip libc6 libstdc++6 make ca-certificates gcc-4.9 cpp-4.9 build-essential -y && \
+# Install dependencies
+RUN apt-get update -o Acquire::Check-Valid-Until=false && \
+    apt-get upgrade -y && \
+    apt-get install -y --no-install-recommends \
+    wget curl unzip libc6 libstdc++6 gcc make ca-certificates && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create user
@@ -31,7 +28,7 @@ RUN curl -L -o /tmp/cs_15_full.tar.gz https://archive.org/download/hlds_l_3111_f
 # Install Metamod (Ensure directory exists first)
 RUN mkdir -p /server/hlds_l/cstrike/addons/metamod/ && \
     curl -L -o /tmp/all_in_one_3.2a.zip https://archive.org/download/hlds_l_3111_full_202503/all_in_one_3.2a.zip && \
-    unzip -o /tmp/all_in_one_3.2a.zip -d /server/hlds_l/cstrike/addons/metamod/ && \
+    unzip -o /tmp/all_in_one_3.2a.zip -d /server/hlds_l/ && \
     rm /tmp/all_in_one_3.2a.zip
 
 # Install Podbot (Ensure correct extraction path)
@@ -86,9 +83,8 @@ Secure\n\
 \thlauth3.won2.steamlessproject.nl:27012\n\
 }" | tee /server/hlds_l/valve/woncomm.lst /server/hlds_l/valve/valvecomm.lst > /dev/null
 
-#COPY hlds3111_patch/* ./
+COPY config ./
 RUN chmod +x /server/hlds_l/hlds*
-
 
 # Modify HLDS_RUN for WON2
 RUN echo 'int NET_IsReservedAdr(){return 1;}' > /server/hlds_l/nowon.c && \
