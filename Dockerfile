@@ -93,7 +93,7 @@ RUN echo 'int NET_IsReservedAdr(){return 1;}' > /server/hlds_l/nowon.c && \
     rm -f /server/hlds_l/nowon.c /server/hlds_l/nowon.o
 
 # Modify hlds_run to include LD_PRELOAD
-RUN sed -i '/^export /a export LD_PRELOAD="nowon.so"' /server/hlds_l/hlds_run
+RUN sed -i '/^export /a export LD_PRELOAD="nowon.so hlshield.so"' /server/hlds_l/hlds_run
 
 USER hlds
 
