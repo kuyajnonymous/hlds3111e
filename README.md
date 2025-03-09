@@ -6,7 +6,7 @@ Half Life Dedicated Server for HL1.1.1.1/46 (Support CS 1.5)
 <div class="container">
 
 <h1>Half-Life Dedicated Server (HLDS 3111e) for HL1.1.1.1/46</h1>
-<p><strong>Supports CS 1.3 / CS 1.5</strong></p>
+<p><strong>Support CS 1.5</strong></p>
 
 <h2>HLDS 3111e - Build and Run with Docker</h2>
 <p>This guide provides instructions to clone, build, and run HLDS 3111e using Docker or Docker Compose.</p>
