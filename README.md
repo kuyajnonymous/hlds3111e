@@ -1,21 +1,7 @@
 Half Life Dedicated Server for HL1.1.1.1/46 (Support CS 1.5)
 
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HLDS 3111e - Build and Upload to Docker Hub</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        h1, h2 { color: #2c3e50; }
-        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
-        code { font-family: "Courier New", monospace; font-size: 14px; color: #c0392b; }
-        .note { background: #eaf5ff; padding: 10px; border-left: 5px solid #3498db; margin: 10px 0; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-    </style>
-</head>
 <body>
 
 <div class="container">
