@@ -1,3 +1,23 @@
+FROM i386/debian:8-slim
+
+# Force Debian 8 installation!
+RUN echo "deb http://archive.debian.org/debian jessie main contrib non-free" > /etc/apt/sources.list
+
+# 1) Install dependencies
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wget libc6 libstdc++6 --force-yes
+
+# 2) Create user
+RUN groupadd -r hlds
+RUN useradd --no-log-init --system --create-home --home-dir /server --gid hlds  hlds
+USER hlds
+
+# Clean up unnecessary files to reduce image size
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Create user
+RUN groupadd -r hlds && useradd --no-log-init --system --create-home --home-dir /server --gid hlds hlds
+USER hlds
+
 # Download and extract HLDS
 RUN wget -q -O -  https://archive.org/download/hlds_l_3111_full/hlds_l_3111_full.bin | \
   tail -c+8338 | head -c121907818 | \
@@ -47,4 +67,4 @@ ENV TERM xterm
 
 ENTRYPOINT ["./hlds_run"]
 
-CMD ["-game", "cstrike", "+map", "de_dust2", "+maxplayers", "16"]
+CMD ["-game valve", "+map crossfire", "+maxplayers 16"]
